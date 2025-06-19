@@ -37,6 +37,18 @@ const projects = [
     link: '#',
     github: '#'
   },
+  {
+    title: 'Portfolio Website',
+    description: 'Website portofolio pribadi yang dibangun menggunakan React dan Tailwind CSS dengan fitur dark mode, scroll animation, filter proyek, dan desain yang modern serta responsif.',
+    tech: ['React', 'Tailwind CSS', 'Framer Motion'],
+    category: 'Web Development',
+    status: 'Completed',
+    image: '../assets/porto-preview.png',
+    gradient: 'from-blue-500 to-indigo-500',
+    features: ['Dark/Light Mode', 'Responsive UI', 'Scroll Animation', 'Project Filtering'],
+    link: 'https://ikhsanularifin.vercel.app/', 
+    github: 'https://github.com/ikhsanlubis17/PortoBaru.git' 
+  }
 ];
 
 export default function Projects() {
@@ -132,11 +144,18 @@ export default function Projects() {
               <div className={`relative h-48 bg-gradient-to-br ${project.gradient} overflow-hidden`}>
                 <div className="absolute inset-0 bg-black/20"></div>
                 <div className="relative z-10 flex items-center justify-center h-full">
-                  <div className="text-6xl transform group-hover:scale-110 transition-transform duration-300">
-                    {project.image}
-                  </div>
+                  {project.image.endsWith('.png') || project.image.endsWith('.jpg') ? (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="h-full w-full object-cover transform group-hover:scale-110 transition-transform duration-300"
+                    />) : (
+                      <div className="text-6xl transform group-hover:scale-110 transition-transform duration-300">
+                        {project.image}
+                    </div>
+                  )}
                 </div>
-                
+
                 {/* Status Badge */}
                 <div className="absolute top-4 right-4">
                   <span className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(project.status)}`}>
@@ -145,21 +164,23 @@ export default function Projects() {
                 </div>
 
                 {/* Overlay on Hover */}
-                <div className={`absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6`}>
-                  <div className="flex space-x-3">
+                <div className="absolute inset-0 flex items-end justify-center pb-6 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 pointer-events-none">
+                  <div className="flex space-x-3 pointer-events-auto">
                     <a
                       href={project.link}
-                      className="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-white/30 transition-colors duration-200 flex items-center"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="z-20 bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-white/30 transition-colors duration-200 flex items-center"
                     >
-                      <span className="mr-2">🔗</span>
-                      Live Demo
+                      <span className="mr-2">🔗</span>Live Demo
                     </a>
                     <a
                       href={project.github}
-                      className="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-white/30 transition-colors duration-200 flex items-center"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="z-20 bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-white/30 transition-colors duration-200 flex items-center"
                     >
-                      <span className="mr-2">📂</span>
-                      GitHub
+                      <span className="mr-2">📂</span>GitHub
                     </a>
                   </div>
                 </div>
