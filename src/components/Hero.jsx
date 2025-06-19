@@ -19,22 +19,22 @@ export default function Hero() {
 
   const photos = [
     {
-      src: "/src/assets/PP.jpeg",
+      src: "../assets/PP.jpeg",
       alt: "Ikhsanul Arifin - Professional",
       theme: "from-blue-500/20 to-purple-500/20 dark:from-blue-400/20 dark:to-purple-400/20"
     },
     {
-      src: "/src/assets/PP2.jpeg", 
+      src: "../assets/PP2.jpeg", 
       alt: "Ikhsanul Arifin - Casual",
       theme: "from-emerald-500/20 to-cyan-500/20 dark:from-emerald-400/20 dark:to-cyan-400/20"
     },
     {
-      src: "/src/assets/PP3.jpeg",
+      src: "../assets/PP3.jpeg",
       alt: "Ikhsanul Arifin - Creative",
       theme: "from-purple-500/20 to-pink-500/20 dark:from-purple-400/20 dark:to-pink-400/20"
     },
     {
-      src: "/src/assets/PP2.jpeg",
+      src: "../assets/PP2.jpeg",
       alt: "Ikhsanul Arifin - Working",
       theme: "from-orange-500/20 to-red-500/20 dark:from-orange-400/20 dark:to-red-400/20"
     }
