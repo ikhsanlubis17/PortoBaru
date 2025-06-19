@@ -1,16 +1,69 @@
 import { useState, useEffect, useRef } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faReact } from '@fortawesome/free-brands-svg-icons'
+import {
+  SiHtml5,
+  SiCss3,
+  SiJavascript,
+  SiReact,
+  SiTailwindcss,
+  SiFigma,
+  SiGit,
+  SiGithub,
+} from 'react-icons/si'
+
 
 export default function About() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
   const skills = [
-    { name: 'React.js', level: 'Advanced', color: 'from-blue-500 to-cyan-500', icon: '⚛️' },
-    { name: 'Tailwind CSS', level: 'Expert', color: 'from-teal-500 to-blue-500', icon: '🎨' },
-    { name: 'JavaScript', level: 'Advanced', color: 'from-yellow-500 to-orange-500', icon: '🔥' },
-    { name: 'HTML/CSS', level: 'Expert', color: 'from-orange-500 to-red-500', icon: '🌐' },
-    { name: 'UI/UX Design', level: 'Intermediate', color: 'from-purple-500 to-pink-500', icon: '✨' },
-    { name: 'Git & GitHub', level: 'Intermediate', color: 'from-gray-600 to-gray-800', icon: '🔧' }
+    {
+      name: 'React.js',
+      level: 'Advanced',
+      color: 'from-blue-500 to-cyan-500',
+      icon: <FontAwesomeIcon icon={faReact} size="2x" />,
+    },
+    {
+      name: 'Tailwind CSS',
+      level: 'Advanced',
+      color: 'from-cyan-400 to-blue-500',
+      icon: <SiTailwindcss size={32} />,
+    },
+    {
+      name: 'JavaScript',
+      level: 'Advanced',
+      color: 'from-yellow-400 to-orange-500',
+      icon: <SiJavascript size={32} />,
+    },
+    {
+      name: 'HTML & CSS',
+      level: 'Advanced',
+      color: 'from-orange-500 to-blue-600',
+      icon: (
+        <div className="flex gap-1">
+          <SiHtml5 size={28} />
+          <SiCss3 size={28} />
+        </div>
+      ),
+    },
+    {
+      name: 'UI/UX Design',
+      level: 'Intermediate',
+      color: 'from-pink-500 to-purple-500',
+      icon: <SiFigma size={32} />,
+    },
+    {
+      name: 'Git & GitHub',
+      level: 'Advanced',
+      color: 'from-gray-800 to-gray-600',
+      icon: (
+        <div className="flex gap-1">
+          <SiGit size={28} />
+          <SiGithub size={28} />
+        </div>
+      ),
+    }
   ];
 
   const interests = [
@@ -166,10 +219,10 @@ export default function About() {
                 {skills.map((skill, index) => (
                   <div key={index} className="group p-4 bg-slate-50 dark:bg-slate-700 rounded-2xl hover:shadow-lg transition-all duration-300">
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-4">
-                        <span className="text-2xl group-hover:scale-110 transition-transform duration-300">
+                      <div className="flex items-center gap-6">
+                        <div className="w-10 h-10 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform duration-300">
                           {skill.icon}
-                        </span>
+                        </div>
                         <div>
                           <div className="font-semibold text-slate-900 dark:text-white">
                             {skill.name}
